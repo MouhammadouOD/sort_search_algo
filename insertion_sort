@@ -1,0 +1,24 @@
+FUNCTION inser_tion_sort (arr : ARRAY_OF[INTEGER]) : ARRAY_OF[INTEGER]
+VAR
+    i , j , temp : INTEGER;
+BEGIN
+
+//parcourir le tableau
+    FOR i FROM 1 TO arr.lenght-1 STEP 1  DO
+
+    //on choisit une clé (l'élement d'indice i)
+        temp :=arr[i];
+
+    // On trie le tableau  [0,i-1] en parcourant de la droite vers la gauche
+        FOR j FROM i-1 TO 0 STEP -1  DO
+
+    //si la valeur est superieur à la clé on le permute avec la clé
+            IF (arr[j]>temp) THEN
+                arr[j+1]:=arr[j];
+                arr[j]:=temp;
+            END_IF
+
+        END_FOR
+    END_FOR
+    RETURN arr ;
+END
